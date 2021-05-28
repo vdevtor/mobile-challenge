@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CurrentApp</string>
+    <string name="select_main_currency">Select Main Currency</string>
+    <string name="select_final_currency">Select final Currency</string>
+    <string name="insert_amount_to_be_converted">Insert value to be converted</string>
+    <string name="convert">Convert</string>
+    <string name="converted_value">Converted value</string>
+    <string name="see_currency_list">See Currency List</string>
+</resources>

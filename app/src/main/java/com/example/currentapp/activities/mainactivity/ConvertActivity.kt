@@ -59,7 +59,6 @@ class ConvertActivity : AppCompatActivity() {
                 val s = binding.mainCurrency.getItemAtPosition(position).toString()
                 MAIN_CURRENCY = s
                 POSICAO = position
-
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -110,24 +109,18 @@ class ConvertActivity : AppCompatActivity() {
 
         currencyTobeConvertedList?.add(0, ALL_CURRENCY)
 
-        updateMainCurrencySpinner(currencyMainList as ArrayList<String>)
+        binding.mainCurrency.adapter = updateSpinner(currencyMainList as ArrayList<String>?)
 
-        updateCurrencyToBeConvertedSpinner(currencyTobeConvertedList as ArrayList<String>)
+        binding.currencyToBeConverted.adapter = updateSpinner(currencyTobeConvertedList as ArrayList<String>?)
+
     }
 
-    private fun updateMainCurrencySpinner(listOfCurrency: ArrayList<String>?) {
+    private fun updateSpinner(listOfCurrency: ArrayList<String>?): ArrayAdapter<String>? {
 
         arrayAdapter = ArrayAdapter(this, R.layout.simple_spinner_dropdown_item,
                 listOfCurrency ?: emptyList())
+        return arrayAdapter
 
-        binding.mainCurrency.adapter = arrayAdapter
-    }
-
-    private fun updateCurrencyToBeConvertedSpinner(listOfCurrency: ArrayList<String>?) {
-        arrayAdapter = ArrayAdapter(this, R.layout.simple_spinner_dropdown_item,
-                listOfCurrency ?: emptyList())
-
-        binding.currencyToBeConverted.adapter = arrayAdapter
     }
 
     fun convert() {

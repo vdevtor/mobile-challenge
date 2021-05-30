@@ -1,12 +1,14 @@
-package com.example.currentapp.activities.mainactivity
+package com.example.currentapp.ui.mainactivity
 
-import android.R
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.fragment.app.FragmentManager
+import com.example.currentapp.R
 import com.example.currentapp.databinding.ActivityConvertBinding
+import com.example.currentapp.ui.listcurrency.CurrencyListFragment
 import com.example.currentapp.utilities.Constants.Api.MAIN_CURRENCY
 import com.example.currentapp.utilities.Constants.Api.POSICAO
 import com.example.currentapp.utilities.Constants.Api.TO_BE_CONVERTED_CURRENCY
@@ -18,11 +20,14 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ConvertActivity : AppCompatActivity() {
+    companion object {
+        lateinit var fm: FragmentManager
+        private  const val ALL_CURRENCY: String = "All Currencies"
+    }
 
     private var currencyMainList: MutableList<String>? = mutableListOf()
     private var currencyTobeConvertedList: MutableList<String>? = mutableListOf()
     private var livePriceList: Map<String, Double>? = mapOf()
-    private val ALL_CURRENCY: String = "All Currencies"
     private var arrayAdapter: ArrayAdapter<String>? = null
     private lateinit var binding: ActivityConvertBinding
     private val viewModel: ConvertViewModel by viewModel()
@@ -34,7 +39,7 @@ class ConvertActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //Chamando viewModel -> Api
-
+        fm = supportFragmentManager
         viewModel.getList()
         viewModel.getPrices()
         setObservables()
@@ -45,6 +50,15 @@ class ConvertActivity : AppCompatActivity() {
 
         //Observando btn convert
         onBtnConvertClickListener()
+
+        binding.btnShowList.setOnClickListener {
+            inflateFragment()
+        }
+    }
+
+    private fun inflateFragment() {
+        fm.beginTransaction().add(binding.fragmentContainer.id, CurrencyListFragment())
+                .addToBackStack(null).commit()
     }
 
     private fun onBtnConvertClickListener() {
@@ -117,13 +131,13 @@ class ConvertActivity : AppCompatActivity() {
 
     private fun updateSpinner(listOfCurrency: ArrayList<String>?): ArrayAdapter<String>? {
 
-        arrayAdapter = ArrayAdapter(this, R.layout.simple_spinner_dropdown_item,
+        arrayAdapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,
                 listOfCurrency ?: emptyList())
         return arrayAdapter
 
     }
 
-    fun convert() {
+    private fun convert() {
         if (currencyIsValid(binding.mainCurrency, ALL_CURRENCY)) {
             displayToast("Selecione a Moeda a ser convertida")
         }
@@ -142,6 +156,5 @@ class ConvertActivity : AppCompatActivity() {
             val result = mainCurrency?.times(tobeConvertedCurrency)
             binding.convertedValue.text = result?.let { formatterNumber(result) }
         }
-
     }
 }

@@ -12,8 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CurrentApp">
-        <activity android:name=".activities.listcurrency.CurrencyListActivity" />
-        <activity android:name=".activities.mainactivity.ConvertActivity">
+        <activity android:name=".ui.mainactivity.ConvertActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

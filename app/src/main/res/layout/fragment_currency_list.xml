@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:elevation="@dimen/_5sdp"
     tools:context=".ui.listcurrency.CurrencyListFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout

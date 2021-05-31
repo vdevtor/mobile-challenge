@@ -11,12 +11,10 @@ import android.widget.ArrayAdapter
 import com.example.currentapp.R
 import com.example.currentapp.databinding.FragmentConvertBinding
 import com.example.currentapp.ui.mainactivity.ConvertActivity.Companion.NAV_CONTROL
-import com.example.currentapp.ui.mainactivity.ConvertCalc
 import com.example.currentapp.utilities.Constants
 import com.example.currentapp.utilities.currencyIsValid
 import com.example.currentapp.utilities.displayToast
 import com.example.currentapp.utilities.formatterNumber
-import com.example.currentapp.viewmodels.ConvertViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

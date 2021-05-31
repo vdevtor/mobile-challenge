@@ -1,6 +1,6 @@
 package com.example.currentapp.di
 
-import com.example.currentapp.viewmodels.ConvertViewModel
+import com.example.currentapp.ui.convert.ConvertViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

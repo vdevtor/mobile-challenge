@@ -1,6 +1,7 @@
-package com.example.currentapp.di
+package com.example.currentapp
 
 import android.app.Application
+import com.example.currentapp.di.AppComponent
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

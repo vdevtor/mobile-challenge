@@ -1,4 +1,4 @@
-package com.example.currentapp.ui.mainactivity
+package com.example.currentapp.ui.convert
 
 import android.widget.EditText
 import com.example.currentapp.utilities.Constants

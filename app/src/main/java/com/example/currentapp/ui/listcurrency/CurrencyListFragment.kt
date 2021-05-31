@@ -10,7 +10,7 @@ import com.example.currentapp.R
 import com.example.currentapp.databinding.FragmentCurrencyListBinding
 import com.example.currentapp.ui.convert.ConvertFragment
 import com.example.currentapp.ui.mainactivity.ConvertActivity.Companion.fm
-import com.example.currentapp.viewmodels.ConvertViewModel
+import com.example.currentapp.ui.convert.ConvertViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 

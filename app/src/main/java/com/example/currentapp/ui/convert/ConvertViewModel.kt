@@ -1,4 +1,4 @@
-package com.example.currentapp.viewmodels
+package com.example.currentapp.ui.convert
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope

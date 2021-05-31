@@ -1,6 +1,6 @@
 package com.example.currentapp.di
 
-import com.example.currentapp.ui.mainactivity.ConvertCalc
+import com.example.currentapp.ui.convert.ConvertCalc
 import com.example.currentapp.network.api.ApiBuilder
 import com.example.currentapp.network.response.ResponseCall
 import com.example.currentapp.network.response.ResponseTreatment
